@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.4'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.sunsc'
+version = '1.0'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework:spring-webflux'
+    testImplementation 'org.springframework.graphql:spring-graphql-test'
+    // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter
+    implementation group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.5.3.1'
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.25'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto
+    implementation group: 'org.springframework.security', name: 'spring-security-crypto', version: '6.0.2'
+    // https://mvnrepository.com/artifact/com.graphql-java-kickstart/graphiql-spring-boot-starter
+    implementation group: 'com.graphql-java-kickstart', name: 'graphiql-spring-boot-starter', version: '11.1.0'
+    // https://mvnrepository.com/artifact/com.graphql-java-kickstart/graphql-spring-boot-starter
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:15.0.0'
+    // https://mvnrepository.com/artifact/com.graphql-java-kickstart/graphql-java-tools
+    implementation 'com.graphql-java-kickstart:graphql-java-tools:13.0.3'
+
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

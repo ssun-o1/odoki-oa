@@ -1,0 +1,34 @@
+type Query {
+    #    user(name: String!): User
+    users: [User]
+    roles: [Role]
+}
+type Mutation {
+    addUser(mobile: String!, name: String!): Result
+    #    deleteUser(id: String!): Result
+    #    updateUser(id: String!, phone: String!, name: String!): User
+    addUserByInput(input: AddUserInput): User
+    addRole(name:String!):Result
+}
+type User {
+    id: String!
+    mobile: String!
+    name: String!
+    password: String!
+}
+
+type Role{
+    id: String!
+    name: String!
+    code: String!
+}
+
+type Result {
+    respCode: Int!
+    msg: String
+}
+
+input AddUserInput {
+    mobile: String!
+    name: String!
+}
